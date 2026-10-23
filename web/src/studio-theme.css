@@ -1,0 +1,93 @@
+/**
+ * Polotno Studio – shared theme for marketing demo editors.
+ *
+ * Mirrors the LIVE Polotno Studio (polotno.com/studio) exactly: a light IBM Carbon
+ * system – monochrome (black primary on white), square corners (radius 0), IBM Plex
+ * Sans. No brand blue, no rounding. Values were read from the live Studio's computed
+ * CSS custom properties. Every `examples/polotno-demo-*` mini-app imports this file so
+ * all demos share one look. All future demos should feature this style.
+ *
+ * How it works: Polotno's new-UI components read shadcn CSS variables
+ * (`var(--pn-X, var(--X, …))`). We set the plain `--X` names on `:root`/`.polotno-ui`
+ * so both Polotno's own components and any custom side-panel markup inherit the same
+ * tokens. No theme class is needed – light is the default.
+ *
+ * Usage in a demo:
+ *   // src/index.jsx:  import '../../shared/studio-theme.css';
+ *   // index.html:     plain <body> (white background)
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #ffffff;
+  color: #161616;
+}
+
+/* Live-Studio token palette (IBM Carbon, light). Set on :root and the polotno-ui
+   portal scope so it reaches popovers/menus/dialogs too. */
+:root,
+.polotno-ui,
+[data-polotno-theme="light"] {
+  /* Polotno's UI reads `font-family: var(--font-sans, …)`; setting the token is
+     how Studio puts the whole editor on IBM Plex Sans (no specificity war). */
+  --font-sans: "IBM Plex Sans", sans-serif;
+
+  --radius: 0;
+
+  --background: #ffffff;
+  --foreground: #161616;
+  --card: #ffffff;
+  --card-foreground: #161616;
+  --popover: #ffffff;
+  --popover-foreground: #161616;
+
+  --primary: #161616;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f4f4;
+  --secondary-foreground: #161616;
+  --muted: #f4f4f4;
+  --muted-foreground: #525252;
+  --accent: #e8e8e8;
+  --accent-foreground: #161616;
+
+  --destructive: #da1e28;
+  --destructive-foreground: #ffffff;
+
+  --border: #c6c6c6;
+  --input: #c6c6c6;
+  --ring: #161616;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #161616;
+  --sidebar-primary: #161616;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8e8e8;
+  --sidebar-accent-foreground: #161616;
+  --sidebar-border: #c6c6c6;
+  --sidebar-ring: #161616;
+}
+
+/* Keep browser / password-manager autofill icons out of inputs (e.g. Dashlane). */
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+}
+
+/* Side rail – Carbon divider lines, slightly wider tab column, like Studio. */
+.polotno-side-tabs-container {
+  border-right: 1px solid #e0e0e0;
+  min-width: 86px;
+}
+@media screen and (min-width: 501px) {
+  .polotno-app-container .polotno-side-tabs-container {
+    min-width: 86px;
+  }
+}
+.polotno-panel-container {
+  border-right: 1px solid #e0e0e0;
+}

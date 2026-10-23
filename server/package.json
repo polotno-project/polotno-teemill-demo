@@ -1,0 +1,13 @@
+{
+  "name": "polotno-teemill-demo-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend for the Polotno + Teemill demo: holds the Teemill credentials and calls its API",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

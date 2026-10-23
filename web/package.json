@@ -1,0 +1,25 @@
+{
+  "name": "polotno-teemill-demo-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A t-shirt customizer built with Polotno SDK that turns the design into a buyable Teemill product page through the Teemill API.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "konva": "^10.9.0",
+    "mobx": "7.0.6",
+    "mobx-react-lite": "^5.1.0",
+    "mobx-state-tree": "8.0.0",
+    "polotno": "^4.17.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5",
+    "vite": "^7"
+  }
+}
